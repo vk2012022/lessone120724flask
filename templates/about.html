@@ -2,7 +2,36 @@
 
 {% block title %}О нас - Мой сайт{% endblock %}
 
+{% block site_name %}О нас{% endblock %}
+
 {% block content %}
-    <h1>О нас</h1>
-    <p>Узнайте больше о нас на этой странице.</p>
+    <div class="row">
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card">
+                <img src="../static/image/img_5.png" class="card-img-top" alt="Изображение 1">
+                <div class="card-body">
+                    <h5 class="card-title">Заголовок карточки 1</h5>
+                    <p class="card-text">Пример текста для карточки, который демонстрирует содержание.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card">
+                <img src="../static/image/img_3.png" class="card-img-top" alt="Изображение 2">
+                <div class="card-body">
+                    <h5 class="card-title">Заголовок карточки 2</h5>
+                    <p class="card-text">Пример текста для карточки, который демонстрирует содержание.</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-md-6 mb-4">
+            <div class="card">
+                <img src="../static/image/img_2.png" class="card-img-top" alt="Изображение 3">
+                <div class="card-body">
+                    <h5 class="card-title">Заголовок карточки 3</h5>
+                    <p class="card-text">Пример текста для карточки, который демонстрирует содержание.</p>
+                </div>
+            </div>
+        </div>
+    </div>
 {% endblock %}

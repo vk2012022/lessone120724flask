@@ -2,23 +2,51 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>{% block title %} {% endblock %}</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>{% block title %}Мой сайт{% endblock %}</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .navbar-nav .nav-link.active {
+            color: #fff !important;
+            background-color: #007bff !important;
+        }
+    </style>
 </head>
 <body>
-    <header>
-        <nav>
-            <ul>
-                <li><a href="{{ url_for('home') }}">Домашняя страница</a></li>
-                <li><a href="{{ url_for('about') }}">О нас</a></li>
-            </ul>
-        </nav>
+    <header class="bg-primary text-white p-3">
+        <div class="container">
+            <h1>{% block site_name %}Мой сайт{% endblock %}</h1>
+            <nav class="navbar navbar-expand-lg navbar-light">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav">
+                        <li class="nav-item">
+                            <a class="nav-link {% if request.endpoint == 'home' %}active{% endif %}" href="{{ url_for('home') }}">Главная</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link {% if request.endpoint == 'about' %}active{% endif %}" href="{{ url_for('about') }}">О нас</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </div>
     </header>
-    <main>
+    <main class="container my-5">
         {% block content %}{% endblock %}
     </main>
-    <footer>
-        <p>&copy; 2024 Мой сайт</p>
+    <footer class="bg-dark text-white p-4 mt-5">
+        <div class="container">
+            <p>Свяжитесь с нами: email@example.com</p>
+            <p>Следите за нами:
+                <a href="#" class="text-white">Facebook</a> |
+                <a href="#" class="text-white">Twitter</a> |
+                <a href="#" class="text-white">Instagram</a>
+            </p>
+        </div>
     </footer>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
