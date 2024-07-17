@@ -6,32 +6,16 @@
 
 {% block content %}
     <div class="row">
-        <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card">
-                <img src="../static/image/img_5.png" class="card-img-top" alt="Изображение 1">
-                <div class="card-body">
-                    <h5 class="card-title">Заголовок карточки 1</h5>
-                    <p class="card-text">Пример текста для карточки, который демонстрирует содержание.</p>
+        {% for card in cards %}
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card">
+                    <img src="{{ card.image }}" class="card-img-top" alt="Изображение {{ loop.index }}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ card.title }}</h5>
+                        <p class="card-text">{{ card.content }}</p>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card">
-                <img src="../static/image/img_3.png" class="card-img-top" alt="Изображение 2">
-                <div class="card-body">
-                    <h5 class="card-title">Заголовок карточки 2</h5>
-                    <p class="card-text">Пример текста для карточки, который демонстрирует содержание.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-lg-4 col-md-6 mb-4">
-            <div class="card">
-                <img src="../static/image/img_2.png" class="card-img-top" alt="Изображение 3">
-                <div class="card-body">
-                    <h5 class="card-title">Заголовок карточки 3</h5>
-                    <p class="card-text">Пример текста для карточки, который демонстрирует содержание.</p>
-                </div>
-            </div>
-        </div>
+        {% endfor %}
     </div>
 {% endblock %}
